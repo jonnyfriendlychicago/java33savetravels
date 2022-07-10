@@ -15,6 +15,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,12 +23,19 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="books")
 
 public class Book {
-    @Id
+    
+//	adjective
+//	adjective 
+//	noun
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotNull
-    @Size(min = 1, max = 200)
+//    @NotNull
+//    use notNull for intergers! use @NotBlank instead, oh, and this will trim as well before analysis
+	@NotBlank
+    @Size(min = 3, max = 200, message="JRF title error msg.")
     private String title;
     
     @NotNull

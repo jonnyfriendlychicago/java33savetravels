@@ -3,9 +3,13 @@ package com.jonfriend.java33savetravels.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,28 +52,37 @@ public class BookController {
 	}
 
 	@RequestMapping("/books/new")
-	public String createBook() {
+	public String createBook( @ModelAttribute("book") Book book ) {
 		return "bookcreatenew.jsp";
 	}
 	
 	@PostMapping("/processNewBook") 
 		public String processNewBook(
-			@RequestParam("title") String title
-			, @RequestParam("description") String description
-			, @RequestParam("language") String language
-			, @RequestParam("numberOfPages") Integer numberOfPages
+//			@RequestParam("title") String title
+//			, @RequestParam("description") String description
+//			, @RequestParam("language") String language
+//			, @RequestParam("numberOfPages") Integer numberOfPages
+			@Valid 
+			@ModelAttribute("book") Book book, 
+			BindingResult result
 			
 		) {
-		System.out.println("title: " + title); 
-		System.out.println("description: " + description); 
-		System.out.println("language: " + language); 
-		System.out.println("numberOfPages: " + numberOfPages); 
-		
-		Book bookInternalVar = new Book(title, description, language, numberOfPages); 
-		bookInternalVar = bookservice.createBook(bookInternalVar); 
+
+//		Book bookInternalVar = new Book(title, description, language, numberOfPages); 
+//		bookInternalVar = bookservice.createBook(bookInternalVar);
+//		bookservice.createBook(book); 
+//		return "redirect:/books";
 			
-		return "redirect:/books";
-	}
+			if (result.hasErrors()) {
+	//          return "/books/bookcreatenew.jsp";
+	//			above terrible: loses the user-entered data, don't do it!
+	            return "bookcreatenew.jsp";
+//	            return "redirect:/books/new"; 
+	        } else {
+	        	bookservice.createBook(book);
+	            return "redirect:/books";
+	        }
+		}
 	
 // end of methods
 }
