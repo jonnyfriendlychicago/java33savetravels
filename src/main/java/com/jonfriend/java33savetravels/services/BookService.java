@@ -3,7 +3,6 @@ package com.jonfriend.java33savetravels.services;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-//import com.codingdojo.mvc.models.Book;
 import com.jonfriend.java33savetravels.models.Book;
 import com.jonfriend.java33savetravels.repositories.BookRepository;
 
