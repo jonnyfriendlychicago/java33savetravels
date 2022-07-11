@@ -26,7 +26,7 @@
 	<a href= "/time">Time Template</a>
 	<a href= "/dojos">Dojos</a>
 	<a href= "/books">Books</a>
-	<!-- <a href= "/counter">Site Visit Counter</a> -->
+	<a href= "/expenses">Expenses</a>
 	
 	
 	<h2>Ninja Gold - We've been here before!</h2>

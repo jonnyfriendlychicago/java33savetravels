@@ -30,7 +30,7 @@ public class ExpenseMdl {
 	private String vendorName; 
 	
 	@NotNull (message="Expense amount required.")
-	@Min(value = 0, message="Expense must be $0.01 or greater.")
+	@Min(value = (long) 0.01, message="Expense must be $0.01 or greater.")
 	private Double expenseAmount;
 	
 	@NotBlank(message="Expense description required.")

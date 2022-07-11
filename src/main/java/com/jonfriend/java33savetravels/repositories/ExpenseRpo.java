@@ -10,7 +10,7 @@ import com.jonfriend.java33savetravels.models.ExpenseMdl;
 @Repository
 public interface ExpenseRpo extends CrudRepository<ExpenseMdl, Long>{
 	
-	List<ExpenseMdl> findall(); 
+	List<ExpenseMdl> findAll(); 
 
 // end repo
 }

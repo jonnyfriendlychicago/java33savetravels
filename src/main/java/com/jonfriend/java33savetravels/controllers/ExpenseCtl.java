@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.jonfriend.java33savetravels.models.Book;
 import com.jonfriend.java33savetravels.models.ExpenseMdl;
 import com.jonfriend.java33savetravels.services.ExpenseSrv;
 
@@ -22,6 +21,7 @@ public class ExpenseCtl {
 
 	@Autowired
 	ExpenseSrv expenseSrv; 
+//	JRF what does autowired mean/do?  this a func I could be exploiting further?
 	
 	@RequestMapping("/expenses")
 	public String expenseList(Model model) {
@@ -35,11 +35,6 @@ public class ExpenseCtl {
 		
 		ExpenseMdl expenseMdl = expenseSrv.findExpense(expenseId); 
 		model.addAttribute("expense", expenseMdl);  
-		 
-		
-//		List<Book> bookListy = bookservice.allBooks(); 
-//		model.addAttribute("bookListy", bookListy); 
-		
 		return "expenseprofile.jsp"; 
 	}
 	

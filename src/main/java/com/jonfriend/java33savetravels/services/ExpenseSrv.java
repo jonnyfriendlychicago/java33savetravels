@@ -17,7 +17,7 @@ public class ExpenseSrv {
 	}
 	
 	public List<ExpenseMdl> allExpense() {
-		return expenseRpo.findall(); 
+		return expenseRpo.findAll(); 
 	}
 	
 	public ExpenseMdl createExpense(ExpenseMdl x) {
